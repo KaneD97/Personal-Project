@@ -5,3 +5,49 @@
 html, body{
   height: 100%;
 }
+
+nav a:visited,
+nav a:link{
+  color:#fff;
+  text-decoration: none;}
+
+nav > ul{
+  list-style: none;
+}
+nav > ul > li{
+  display: inline;
+  margin-left: 5em;
+}
+
+aside{
+  width: 40%;
+    padding-left: .5rem;
+    margin-left: .5rem;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px #29627e;
+    font-style: italic;
+    color: #29627e;
+}
+
+aside > p {
+    margin: .5rem;
+}
+
+p{
+  margin: 0.5em 0 0.5em 0;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+header{
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  background-color: #3333ff;
+  padding: 10px;
+}
