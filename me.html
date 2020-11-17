@@ -1,8 +1,144 @@
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-  </head>
-  <body>
-    <h2>oh whaaa!</h2>
-  </body>
+
+<head>
+	<meta charset="UTF-8">
+	<script src="script.js" type="text/javascript"></script>
+	<<link rel="stylesheet" type="text/css" href="styles.css">
+		<style>
+			.input-group {
+				margin-bottom: 20px;
+			}
+
+			.input-group textarea,
+			.input-group input,
+			.input-group select {
+				padding: 10px;
+				border: solid 1px #999;
+				border-radius: 2px;
+				width: 100%;
+			}
+
+			label {
+				font-weight: 600;
+			}
+
+			input[type="reset"] {
+				background: transparent;
+				border: 0;
+				text-decoration: underline;
+				cursor: pointer;
+			}
+
+			input[type="submit"] {
+				border: solid 1px #999;
+				border-radius: 3px;
+				padding: 10px;
+			}
+		</style>
+</head>
+
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a>Leaderboard</a></li>
+				<li><a href="players.html">Players</a></li>
+				<li><a href="me.html">Admin</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<aside>
+			<img src="https://media.eventhubs.com/images/2019/10/17-street-fighter-league-pro-jp-results.jpg"/>
+    </aside>
+			<article>
+				<h1 id="main"></h1>
+				<div class='player'>
+					<img src=""/>
+					<div class="columns">
+						<div class="gamertag"></div>
+						<div class="team"></div>
+					</div>
+					<p class="mini-bio"></p>
+				</div>
+				<form action="https://web-platform-a8bdh6.stackblitz.io/api/post" method="POST">
+					<div class="input-group">
+						<div><label for="describe">One word to describe them</label></div>
+						<div><input type="text" name="describe" id="describe"/> </div>
+						</div>
+
+						<div class="input-group">
+							<div><label for="strengths">Strengths</label></div>
+							<div><input type="text" name="strengths" id="strengths"/> </div>
+							</div>
+
+							<div class="input-group">
+								<div><label for="team">Team</label></div>
+								<div><select name="team" id="team">
+            <option value="" selected">[Select one]</option>
+            <option value="Team Dynamite" selected">Team Dynamite</option>
+            </select> </div>
+							</div>
+
+							<div class="input-group">
+								<div><label for="notes">Notes</label></div>
+								<div><textarea name="notes" id="notes" cols="30" rows="10"></textarea></div>
+							</div>
+							<input type="reset" value="Reset"/>
+							<input type="button" value="Submit"/>
+
+				</form>
+			</article>
+
+	</main>
+	<footer>
+		<nav>
+			<ul>
+				<li><a>Home</a></li>
+				<li><a>Leaderboard</a></li>
+				<li><a>Players</a></li>
+				<li><a>Admin</a></li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+<script>
+	window.addEventListener('DOMContentLoaded', function(e){
+    let images = {
+    "smuggles": "https://clips-media-assets2.twitch.tv/AT-cm%7C430879802-preview.jpg",
+    "tokido": "https://i.ytimg.com/vi/ZTfL3Hkkmig/hqdefault.jpg"
+  }
+    const order = localStorage.getItem("order");
+
+    if(order){
+      const playerOrder = JSON.parse(order);
+
+      const player = document.querySelector(".player");
+      const gamertag = player.querySelector(".gamertag");
+      const team = player.querySelector(".team");
+      const desc = player.querySelector(".mini-bio");
+
+      gamertag.innerText = playerOrder.gamertag;
+      team.innerText = playerOrder.team;
+      desc.innerText = playerOrder.miniBio;
+
+      const img = player.querySelector('img');
+      img.setAttribute('src', images[playerOrder.id]);
+      img.setAttribute('alt', playerOrder.title);
+
+      const title = document.querySelector("#main");
+      title.innerText = "What do you think of " + playerOrder.gamertag +"?";
+    }
+  });
+
+  const submitButton = document.querySelector('input[value="Submit"]');
+  submitButton.addEventListener("click", function(e){
+    const url = window.location.href.replace("me.html","submission.html");
+    window.location.href = url;
+  })
+
+  
+</script>
+
 </html>

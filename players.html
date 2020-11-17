@@ -31,7 +31,7 @@
 							<div class="team">Team Dynamite</div>
 						</div>
 						<p class="mini-bio">The Mayor of Duff City</p>
-						<button data-order="smuggles">Subscribe</button>
+						<button data-order="smuggles">Analyse</button>
 					</div>
 
 					<div class='player'>
@@ -41,7 +41,7 @@
 							<div class="team">Team Tokido Flame</div>
 						</div>
 						<p class="mini-bio">Murder Face</p>
-						<button data-order="tokido">Subscribe</button>
+						<button data-order="tokido">Analyse</button>
 					</div>
 				</section>
 
@@ -51,16 +51,16 @@
 	<footer>
 		<nav>
 			<ul>
-				<li><a>Home</a></li>
+				<li><a href="index.html">Home</a></li>
 				<li><a>Leaderboard</a></li>
-				<li><a>Players</a></li>
-				<li><a>Admin</a></li>
+				<li><a href="players.html">Players</a></li>
+				<li><a href="me.html">Admin</a></li>
 			</ul>
 		</nav>
 	</footer>
 </body>
 <script>
-  window.addEventListener('DOMContentLoaded', function(e){
+	window.addEventListener('DOMContentLoaded', function(e){
     const buttons = document.querySelectorAll("button[data-order]");
     buttons.forEach(function(button){
       button.addEventListener('click', function(e){
@@ -79,5 +79,10 @@
       })
     })
   })
+
+  ids = {
+
+  }
 </script>
+
 </html>
